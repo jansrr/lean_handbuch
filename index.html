@@ -106,6 +106,7 @@
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       if (pwInput.value === PASSWORD) {
+        sessionStorage.setItem("lean_handbuch_auth", "ok");
         window.location.href = TARGET;
       } else {
         msg.textContent = "Falsches Passwort.";

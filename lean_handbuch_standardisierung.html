@@ -294,6 +294,11 @@
   </style>
 </head>
 <body>
+  <script>
+    if (sessionStorage.getItem("lean_handbuch_auth") !== "ok") {
+      window.location.replace("index.html");
+    }
+  </script>
   <div class="container">
     <header class="panel">
       <div class="brand">
