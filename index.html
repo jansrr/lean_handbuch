@@ -1,0 +1,117 @@
+﻿<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lean Handbuch - Login</title>
+  <style>
+    :root {
+      --bg-1: #f4f7fb;
+      --bg-2: #e8eff8;
+      --surface: #ffffff;
+      --text: #1a2a3a;
+      --muted: #5f6f82;
+      --line: #d5dfeb;
+      --accent: #0d6cb8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: "Montserrat", "Segoe UI", Tahoma, sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at 10% 10%, #f8fbff 0%, var(--bg-1) 45%, var(--bg-2) 100%);
+      padding: 20px;
+    }
+
+    .card {
+      width: min(460px, 92vw);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 12px 28px rgba(12, 48, 82, 0.1);
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 1.6rem;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    input {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid #bfcfe3;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 10px;
+      padding: 11px 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      cursor: pointer;
+    }
+
+    .msg {
+      margin-top: 10px;
+      min-height: 1.2em;
+      font-size: 0.95rem;
+      color: #b02020;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Lean Handbuch</h1>
+    <p>Bitte Passwort eingeben.</p>
+
+    <form id="loginForm">
+      <label for="pw">Passwort</label>
+      <input id="pw" type="password" autocomplete="current-password" required />
+      <button type="submit">Öffnen</button>
+      <div id="msg" class="msg"></div>
+    </form>
+  </main>
+
+  <script>
+    const PASSWORD = "Lean2026!";
+    const TARGET = "lean_handbuch_standardisierung.html";
+
+    const form = document.getElementById("loginForm");
+    const pwInput = document.getElementById("pw");
+    const msg = document.getElementById("msg");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (pwInput.value === PASSWORD) {
+        window.location.href = TARGET;
+      } else {
+        msg.textContent = "Falsches Passwort.";
+        pwInput.select();
+      }
+    });
+  </script>
+</body>
+</html>
